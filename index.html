@@ -11,13 +11,22 @@
         <header>
             <img class="logo" src="./IMG/logo.jpg">
             <nav>
-                <img class="menu" src="./IMG/menu.png">
-                <a href="#conocenos">CONOCENOS</a>
-                <a href="#actividades">ACTIVIDADES</a>
-                <a href="#contacto">CONTACTO</a>
-                <a>LOG IN</a>
+                <img class="menu" src="./IMG/menu.png" alt="Menu" onclick="toggleMenu()">
+                <div class="nav-links">
+                    <a href="#conocenos">CONOCENOS</a>
+                    <a href="#actividades">ACTIVIDADES</a>
+                    <a href="#contacto">CONTACTO</a>
+                    <a>LOG IN</a>
+                </div>
             </nav>
         </header>
+        <div class="overlay" onclick="toggleMenu()"></div>
+        <div class="nav-mobile">
+            <a href="#conocenos" onclick="toggleMenu()">CONÓCENOS</a>
+            <a href="#actividades" onclick="toggleMenu()">ACTIVIDADES</a>
+            <a href="#contacto" onclick="toggleMenu()">CONTACTO</a>
+            <a onclick="toggleMenu()">LOG IN</a>
+        </div>
         <div class="portada">
             <img class="arcoiris" src="./IMG/arcoiris.png">
             <img class="lienzo" src="./IMG/lienzo.png">
@@ -91,5 +100,21 @@
         <img class="fondo" src="./IMG/fingura7.png">
         <img class="fondo" src="./IMG/fingura8.png">
     </div>
+    <script>
+        function toggleMenu() {
+            const navMobile = document.querySelector('.nav-mobile');
+            const overlay = document.querySelector('.overlay');
+            
+            navMobile.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Prevenir scroll cuando el menú está abierto
+            if (navMobile.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
 </body>
 </html>
