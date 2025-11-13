@@ -91,6 +91,66 @@ nav {
     cursor: pointer;
 }
 
+/************NAV MOBIL*************/
+.nav-links {
+    display: contents;
+}
+
+.nav-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--color1), var(--color2));
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.3s ease;
+}
+
+.nav-mobile.active {
+    right: 0;
+}
+
+.nav-mobile a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.nav-mobile a:hover {
+    transform: scale(1.1);
+}
+
+/* Overlay oscuro */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+}
+
+/***********PORTADA************/
+
 .portada {
     position: relative;
     width: 100%;
@@ -130,14 +190,23 @@ nav {
 }
 
 @media (max-width: 800px) {
-    nav a{
+    .nav-links {
         display: none;
     }
-    nav{
+    nav {
         justify-content: end;
     }
-    .menu{
+    .menu {
         display: flex;
+    }
+    .nav-mobile {
+        display: flex;
+    }
+    .overlay {
+        display: block;
+    }
+    nav a{
+        display: none;
     }
     .lienzo {
         display: none;
