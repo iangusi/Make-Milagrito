@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'dreaming-outloud-sans';
+  src: url('../FONTS/dreaming-outloud-script.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+    --fondo: #fcf7ed;
+    --color1: #fc7b61;
+    --color2: #ff5058;
+    --color3: #fea71a;
+    --color4: #ffc20a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+
+body {
+    background-color: var(--fondo);
+}
+
+h1, h2 {
+    font-family: dreaming-outloud-sans, sans-serif;
+    color: #fff;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    text-align: center;
+    font-weight: 400;
+}
+h1 {
+    font-size: clamp(3.2rem, 6vw, 8rem); /* escala con el viewport */
+}
+h2 {
+    font-size: clamp(3rem, 4vw, 7rem); /* escala con el viewport */
+}
+a, p {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+a {
+    text-decoration: none;
+    color: var(--color1);
+}
+
+/***************************PAGE 1*****************************/
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    padding: 0 25px;
+    justify-content: space-between;
+    background-color: azure;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+}
+nav {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu {
+    display: none;
+    width: 50px;
+    height: 50px;
+}
+nav:last-child {
+    margin: 0 10px;
+}
+
+/* --- Portada layout responsivo --- */
+.portada {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  min-height: 400px;
+  max-height: 70vw; 
+}
+
+/* Arcoiris: ocupa más del ancho para crear la curva y es responsivo */
+.arcoiris {
+  position: absolute;
+  left: -15%;
+  width: clamp(
+    120%,
+    calc(100% + (1400px - 100vw)),
+    600%
+  );
+  transform: rotate(31deg);
+  height: auto;
+  transform-origin: center;
+  z-index: 2; /* por defecto detrás del texto */
+  pointer-events: none;
+}
+
+/* Lienzo: a la derecha, ligeramente rotado como en tu imagen */
+.lienzo {
+  position: absolute;
+  right: 5%;
+  width: clamp(180px, 17vw, 420px); /* responsivo entre 180px y 420px */
+  height: auto;
+  transform: rotate(12deg);
+  z-index: 4; /* por encima del arcoiris y del texto en pantallas grandes */
+  transition: transform .25s ease, right .25s ease;
+}
+
+/* Título centrado */
+.portada h1 {
+  z-index: 3; /* por encima del arcoiris en tamaño normal */
+  margin: 0 5%;
+}
+
+/* Ajustes intermedios (tablets) */
+@media (max-width: 800px) {
+    nav a{
+        display: none;
+    }
+    nav{
+        justify-content: end;
+    }
+    .menu{
+        display: flex;
+    }
+    .lienzo {
+        display: none;
+    }
+    .portada {
+        justify-content: center;
+    }
+}
+
+/***************************PAGE 2*****************************/
+#conocenos {
+    height: 100vh;
+    min-height: 500px;
+    max-height: 50vw; 
+}
+
+.figura1, .aro, .texto {
+    position: absolute;
+    left: 50%;   
+    bottom: 0;
+}
+.figura1, .aro {
+    width: 80%;   
+    min-width: 850px;
+    animation: rotacionSimple 25s linear infinite;
+}
+.figura1 {
+    animation-direction: reverse; 
+}
+
+.texto {
+    width: 40%;
+    min-width: 360px;
+    transform: translate(-50%, -5%);
+    text-align: justify;
+}
+
+@keyframes rotacionSimple {
+  from {
+    transform: translate(-50%, 50%) rotate(0deg); /* Estado inicial: 0 grados */
+  }
+  to {
+    transform: translate(-50%, 50%) rotate(360deg); /* Estado final: 360 grados (una vuelta completa) */
+  }
+}
+
+/***************************PAGE 3*****************************/
+#actividades {
+    position: relative;
+    text-align: center;
+    padding: 20px 0 0;
+    align-items: center;
+}
+
+#actividades h2, #contacto h1 {
+    color: black;
+}
+
+.texto2 {
+    text-align: center;
+    width: 90%;
+}
+
+.formas {
+    max-height: fit-content;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.forma {
+    width: 28%;
+    min-width: 360px;
+    height: 450px;
+    margin-top: 30px;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.forma:nth-child(1) {
+    background-color: var(--color2);
+}
+.forma:nth-child(2) {
+    background-color: var(--color3);
+}
+.forma:nth-child(3) {
+    background-color: var(--color4);
+}
+
+.forma img {
+    height: 350px;
+}
+
+/***************************PAGE 4*****************************/
+#contacto {
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes {
+    margin-top: 30px;
+}
+
+.red {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    font-size: 1.5rem;
+}
+.red img {
+    width: 50px;
+}
+
+.fondo {
+    position: absolute;
+    width: 100px;
+}
+.fondo:nth-of-type(1) {
+    top: 0;
+    left: 2%;
+    width: 30%;
+    transform: translateY(-30%);
+}
+.fondo:nth-of-type(2) {
+    top: 0;
+    left: 0;
+    width: 10%;
+    transform: translateY(800%);
+}
+.fondo:nth-of-type(3) {
+    bottom: 0;
+    left: 0;
+    width: 10%;
+    transform: translateY(0%);
+}
+.fondo:nth-of-type(4), .fondo:nth-of-type(5) {
+    bottom: 0;
+    right: 0;
+    width: 15%;
+    transform: translateX(0%);
+}
+.fondo:nth-of-type(6) {
+    top: 0;
+    right: 0;
+    width: 5%;
+    transform: translateY(250%);
+}
+.fondo:nth-of-type(7) {
+    top: 0;
+    right: 0;
+    width: 30%;
+}
