@@ -1,3 +1,3 @@
-MAKE MILAGRITO
+<h1>MAKE MILAGRITO</h1>
 
-https://iangusi.github.io/Make-Milagrito/
+<p><a href="https://iangusi.github.io/Make-Milagrito/">Visita nuestra página</a></p>
